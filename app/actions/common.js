@@ -44,7 +44,7 @@ export const fetchRegister = (startAction, values, cal, endAction) => (dispatch)
         console.log(1)
         cal && cal(res);
         endAction && dispatch(endAction());
-        dispatch('response_user_info',res.data);
+        dispatch({type:'response_user_info',data:res.data});
     })
 }
 

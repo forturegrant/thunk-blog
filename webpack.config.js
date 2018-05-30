@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 //const WebpackDevServer = require("webpack-dev-server");
 
 module.exports = {
-    devtool:'inline-source-map',
+    devtool: 'inline-source-map',
     entry: [
         "webpack-dev-server/client?http://0.0.0.0:3000",
         "webpack/hot/only-dev-server",
@@ -12,9 +12,10 @@ module.exports = {
         './app/index.js'
     ],
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '/dist'),
         filename: 'app.js',
-        chunkFilename:'[name].[chunkhash:5].chunk.js'
+        //publicPath: '/',
+        chunkFilename: '[name].[chunkhash:5].chunk.js'
     },
     plugins: [
         new HtmlWebpackPlugin({

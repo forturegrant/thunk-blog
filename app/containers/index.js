@@ -6,22 +6,35 @@ import {
 	Redirect
 } from 'react-router-dom'
 import '../style/style.less'
+import Register from './register'
+import {Carousel} from 'antd'
 
 export default class App extends Component{
 	constructor(props){
 		super(props)
 	}
 	componentWillMount(){
-		const token = localStorage.getItem('token');
+		/*const token = localStorage.getItem('token');
 		if(!token){
             history.pushState({},0,'http://'+window.location.host+'/#/login');
-        }
+        }*/
 	}
 	render(){
 		return(
-				<div className="firstHeader">
-					{/*<Route path="/login" component={Login} />*/}
-				</div>
+			<div>
+				<Carousel autoplay>
+					<div>
+						<img src="banner_1.png" />
+					</div>
+					<div>
+						<img src="banner_2.png" />
+					</div>
+					<div>
+						<img src="banner_3.png" />
+					</div>
+				</Carousel>
+				<Register />
+			</div>
 			)
 	}
 }
