@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run start-dev-api\" \"npm run watch-client\"",
-    "start-dev-api":"node ./server/api",
-    "watch-client":"node server.js"
+    "start-dev-api": "node ./server/api/index.js",
+    "watch-client": "node ./server.js"
   },
   "dependencies": {
     "antd": "^2.13.1",

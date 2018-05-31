@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import {Form, Row, Col, Spin, Input, Icon, Button, message} from 'antd'
 
 import {fetchRegister} from "../../actions/common";
-import {startRegister,endRegister} from '../../reducers/register'
+import {startRegister, endRegister} from '../../reducers/register'
 
 const FormItem = Form.Item
 
@@ -21,7 +21,7 @@ class registerForm extends Component {
             if (!err) {
                 this.props.dispatch(fetchRegister(startRegister, values, (res) => {
                     message.success(res.msg)
-                },endRegister))
+                }, endRegister))
 
                 /*this.props.dispatch(fetchRegister(values, (res) => {
                     // console.log(res)

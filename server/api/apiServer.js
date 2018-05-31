@@ -16,12 +16,19 @@ import session from 'express-session'
 const port = config.apiPort;
 
 const app = new Express();
+app.all('*', function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Credentials", true);
+    next();
+});
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser('express_react_cookie'));
 app.use(session({
-    secret:'express_react_cookie',
+    secret: 'express_react_cookie',
     resave: true,
-    saveUninitialized:true,
+    saveUninitialized: true,
     cookie: {maxAge: 60 * 1000 * 30}//过期时间
 }));
 
@@ -31,7 +38,7 @@ app.use('/', require('./main'));
 //管理页面路由
 app.use('/admin', require('./admin'));
 
-app.use('/detail',require('./comment'));
+app.use('/detail', require('./comment'));
 
 mongoose.Promise = require('bluebird');
 mongoose.connect(`mongodb://${config.dbHost}:${config.dbPort}/blog`, function (err) {

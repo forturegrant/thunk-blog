@@ -60,7 +60,7 @@ axiosInstance.interceptors.response.use(resp => resp, (error) => {
   return Promise.reject(error)
 })
 
-export function axiosPost(url, reqData, target, handleCancel) {
+function axiosPost(url, reqData, target, handleCancel) {
   let newUrl
   if (target) {
     newUrl = `${target}${url}${suffix}`
@@ -72,9 +72,9 @@ export function axiosPost(url, reqData, target, handleCancel) {
   })
 }
 
-/*const fetchJSONByPost = (url, target) => (reqData, handleCancel) => axiosPost(url, reqData, target, handleCancel)
+const fetchJSONByPost = (url, target) => (reqData, handleCancel) => axiosPost(url, reqData, target, handleCancel)
 
 export {
   fetchJSONByPost,
   axiosBaseConfig,
-}*/
+}
