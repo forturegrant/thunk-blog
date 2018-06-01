@@ -44,6 +44,7 @@ router.post('/login', (req, res) => {
 
 
 router.post('/register', (req, res) => {
+    //let req = JSON.parse(req);
     let {userName, password, passwordRe} = req.body;
     if (!userName) {
         responseClient(res, 400, 2, '用户名不可为空');
