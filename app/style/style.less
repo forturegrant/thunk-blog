@@ -1,39 +1,20 @@
 @import "./normalize.less";
 
-.firstHeader {
-  height: 30%;
-  width: 100%;
-  background: red;
-  position: absolute;
-  top: 0;
+.container{
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
 }
 
-.loginHeader {
-  height: 30%;
-  width: 100%;
-  background: #2D333E;
-  position: absolute;
-  top: 0;
+.formStyle{
+  width: 70%;
+  margin-left: 15%;
+  text-align: center;
+  padding-top: 20px;
+}
+.loginButton{
+  width: 60%;
 }
 
-.btmLogin{
-  position: absolute;
-  top: 30%;
-  width: 100%;
-  .sy_bottom{
-    h1{
-       text-align: center;
-       font-size: 25px;
-       color: #333;
-       font-weight: normal;
-       padding: 50px 0;
-     }
-    .ul-wrap{
-      width: 20%;
-      margin: 0 auto;
-      .ant-btn{margin-right: 10px;}
-      .ant-input{ height: 32px;}
-      .ant-spin-spinning{ left: 0; }
-    }
-  }
-}
+
