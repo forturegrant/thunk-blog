@@ -15,7 +15,7 @@ const axiosBaseConfig = {
     validateStatus: status =>
         status >= 200 && status < 300, // default
     // 请求数据预处理
-    transformRequest: [(data) =>{
+    transformRequest: [(data) => {
         let ret = '';
         for (let it in data) {
             ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
@@ -41,10 +41,26 @@ const axiostance = axios.create(axiosBaseConfig);
 export const fetchRegister = (startAction, values, cal, endAction) => (dispatch) => {
     startAction && dispatch(startAction());
     axiostance.post('/user/register', values).then((res) => {
-        console.log(1)
         cal && cal(res);
         endAction && dispatch(endAction());
-        dispatch({type:'response_user_info',data:res.data});
+        dispatch({type: 'response_user_info', data: res.data.data});
     })
 }
 
+export const fetchLogOut = (startAction, values, cal, endAction) => (dispatch) => {
+    startAction && dispatch(startAction());
+    axiostance.post('/user/logout').then((res) => {
+        cal && cal(res);
+        endAction && dispatch(endAction());
+        dispatch({type: 'response_user_info', data: res.data.data});
+    })
+}
+
+export const fetchLogIn = (startAction, values, cal, endAction) => (dispatch) => {
+    startAction && dispatch(startAction());
+    axiostance.post('/user/logIn', values).then((res) => {
+        cal && cal(res);
+        endAction && dispatch(endAction());
+        dispatch({type: 'response_user_info', data: res.data.data});
+    })
+}

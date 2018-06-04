@@ -1,5 +1,6 @@
 const initialState = {
-    loading: false
+    loading: false,
+    userInfo: {}
 }
 
 export function startRegister(text) {
@@ -31,6 +32,12 @@ export function registerR(state = initialState, action) {
             return {
                 userInfo: action.data
             }
+            break;
+        case "log_out":
+            return {
+                userInfo: action.data
+            }
+            break;
         default:
             return state
     }
