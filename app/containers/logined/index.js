@@ -7,7 +7,7 @@ const Logined = (props) => (
         <p>欢迎：{props.userInfo.username}</p>
         <p className='centerP'>光临我的博客~</p>
         {props.userInfo.userType === 'admin' ?
-            <Button onClick={() => props.history.push('/admin')} type="primary">点击进入管理页面</Button> : null}
+        <Button onClick={() => props.history.push('/admin')} type="primary">点击进入管理页面</Button> : null}
         <Button onClick={() => props.logout()} type="primary">退出登录</Button>
     </div>
 );

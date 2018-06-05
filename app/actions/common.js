@@ -48,3 +48,11 @@ export const fetchRegister = (startAction, values, cal, endAction) => (dispatch)
     })
 }
 
+export const fetchLogOut = (startAction, values, cal, endAction) => (dispatch) => {
+    startAction && dispatch(startAction());
+    axiostance.post('/user/logout', values).then((res) => {
+        endAction && dispatch(endAction());
+        dispatch({type:'response_user_info',data:res.data});
+    })
+}
+

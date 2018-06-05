@@ -10,6 +10,8 @@ import '../style/style.less'
 import Login from './login'
 import Logined from './logined'
 import Register from './register'
+import {fetchLogOut} from "../actions/common";
+import {startRegister, endRegister} from '../../reducers/register'
 import {Carousel, Tabs} from 'antd'
 
 const TabPane = Tabs.TabPane;
@@ -41,7 +43,9 @@ class App extends Component {
                         <img src="static/banner_3.png"/>
                     </div>
                 </Carousel>
-                {userInfo ? <Logined /> :
+                {userInfo ? <Logined logout={this.props.dispatch(fetchLogOut(startRegister, values, (res) => {
+                        message.success(res.msg)
+                    }, endRegister))}/> :
                     <Tabs defaultActiveKey="1" tabBarStyle={{textAlign: 'center'}} className='container'>
                         <TabPane tab="登录" key="1">
                             <Login/>
@@ -62,7 +66,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatch: 1
+    dispatch: dispatch
 })
 
 export default connect(
