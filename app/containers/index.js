@@ -7,70 +7,28 @@ import {
     Redirect
 } from 'react-router-dom'
 import '../style/style.less'
-import Login from './login'
-import Logined from './logined'
-import Register from './register'
-import {fetchLogOut} from "../actions/common";
-import {startRegister, endRegister} from '../../reducers/register'
-import {Carousel, Tabs} from 'antd'
 
-const TabPane = Tabs.TabPane;
+import Front from './front/index.js'
+import Admin from './admin'
 
-class App extends Component {
+
+export default class App extends Component {
     constructor(props) {
         super(props)
     }
 
-    componentWillMount() {
-        /*const token = localStorage.getItem('token');
-        if(!token){
-            history.pushState({},0,'http://'+window.location.host+'/#/login');
-        }*/
-    }
 
     render() {
-        const {userInfo} = this.props;
         return (
             <div>
-                <Carousel autoplay>
+                <Router>
                     <div>
-                        <img src="static/banner_1.png"/>
+                        <Route path="/" component={Front}/>
+                        <Route path="/admin" component={Admin}/>
                     </div>
-                    <div>
-                        <img src="static/banner_2.png"/>
-                    </div>
-                    <div>
-                        <img src="static/banner_3.png"/>
-                    </div>
-                </Carousel>
-                {userInfo ? <Logined logout={this.props.dispatch(fetchLogOut(startRegister, values, (res) => {
-                        message.success(res.msg)
-                    }, endRegister))}/> :
-                    <Tabs defaultActiveKey="1" tabBarStyle={{textAlign: 'center'}} className='container'>
-                        <TabPane tab="登录" key="1">
-                            <Login/>
-                        </TabPane>
-                        <TabPane tab="注册" key="2">
-                            <Register/>
-                        </TabPane>
-                    </Tabs>
-                }
+                </Router>
             </div>
         )
     }
 }
-
-
-const mapStateToProps = (state) => ({
-    userInfo: state.userInfo
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    dispatch: dispatch
-})
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(App)
 

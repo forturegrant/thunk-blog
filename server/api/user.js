@@ -76,7 +76,7 @@ router.post('/register', (req, res) => {
                     User.findOne({username: userName})
                         .then(userInfo => {
                             let data = {};
-                            data.username = userInfo.username;
+                            data.username = userInfo    .username;
                             data.userType = userInfo.type;
                             data.userId = userInfo._id;
                             responseClient(res, 200, 0, '注册成功', data);
