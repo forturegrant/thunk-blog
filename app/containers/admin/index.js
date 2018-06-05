@@ -1,11 +1,14 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Menu,Icon} from 'antd'
-import {fetchLogIn} from "../../actions/common";
-import {startRegister, endRegister} from '../../reducers/register'
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect
+} from 'react-router-dom'
 import Menus from './menus'
 import Welcome from './welcome'
-
+import AdminManagerUser from './adminManagerUser'
 
 class Admin extends Component {
     constructor(props) {
@@ -13,11 +16,12 @@ class Admin extends Component {
     }
 
     render() {
+        const {url} =this.props.match
         return (
             <div>
                 <Menus />
-                <Route path="/" Component={welcome}/>
-                <Route path="/" />
+                <Route path={`${url}/`} component={Welcome}/>
+                <Route path={`${url}/managerUser`} component={AdminManagerUser}/>
             </div>
         )
     }

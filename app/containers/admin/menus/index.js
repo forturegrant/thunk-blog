@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Menu,Icon} from 'antd'
-import {fetchLogIn} from "../../actions/common";
-import {startRegister, endRegister} from '../../reducers/register'
-import welcome from './welcome'
 
 class Menus extends Component {
     constructor(props) {

@@ -69,7 +69,7 @@ router.post('/register', (req, res) => {
             let user = new User({
                 username: userName,
                 password: md5(password + MD5_SUFFIX),
-                type: 'user'
+                type: 'admin'
             });
             user.save()
                 .then(function () {
