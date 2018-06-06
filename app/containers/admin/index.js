@@ -16,12 +16,18 @@ class Admin extends Component {
     }
 
     render() {
-        const {url} =this.props.match
+        const {url} = this.props.match
         return (
             <div>
-                <Menus />
-                <Route path={`${url}/`} component={Welcome}/>
-                <Route path={`${url}/managerUser`} component={AdminManagerUser}/>
+                <div className="bigContainer">
+                    <div className="menuContainer">
+                        <Menus/>
+                    </div>
+                    <div>
+                        <Route path={`${url}/`} component={Welcome}/>
+                        <Route path={`${url}/managerUser`} component={AdminManagerUser}/>
+                    </div>
+                </div>
             </div>
         )
     }

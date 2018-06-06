@@ -10,7 +10,7 @@ class Menus extends Component {
     render() {
         return (
             <div>
-                <Menu onClick={(key) => this.props.history.push(`/admin${key}`)}>
+                <Menu className="menuContainer" onClick={(key) => this.props.history.push(`/admin${key}`)}>
                     <Menu.Item key='/'>
                         <Icon type='home'/>
                         <span>首页</span>
