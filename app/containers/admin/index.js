@@ -16,7 +16,7 @@ class Admin extends Component {
         return (
             <div>
                 <Menus />
-                <Route path="/" Component={welcome}/>
+                <Route path="/" Component={Welcome}/>
                 <Route path="/" />
             </div>
         )
