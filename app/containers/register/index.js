@@ -19,7 +19,7 @@ class registerForm extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                this.props.dispatch(fetchRegister(startRegister, values, (res) => {
+                    this.props.dispatch(fetchRegister(startRegister, values, (res) => {
                     message.success(res.msg)
                 }, endRegister))
 

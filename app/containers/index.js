@@ -23,7 +23,7 @@ export default class App extends Component {
             <div>
                 <Router>
                     <div>
-                        <Route path="/" component={Front}/>
+                        <Route exact path="/" component={Front}/>
                         <Route path="/admin" component={Admin}/>
                     </div>
                 </Router>
