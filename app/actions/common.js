@@ -64,3 +64,26 @@ export const fetchLogIn = (startAction, values, cal, endAction) => (dispatch) =>
         dispatch({type: 'response_user_info', data: res.data.data});
     })
 }
+
+export const fetchPublish = (startAction, values, cal, endAction) => (dispatch) => {
+    startAction && dispatch(startAction());
+    axiostance.post('/admin/article/addArticle', values).then((res) => {
+        cal && cal(res);
+        endAction && dispatch(endAction());
+        dispatch({type: 'response_user_info', data: res.data.data});
+    })
+}
+
+export const fetchAddTag = (startAction, values, cal, endAction) => (dispatch) => {
+    startAction && dispatch(startAction());
+    /*if(!values){
+        dispatch()
+    }*/
+    axiostance.post('/admin/tags/addTag', values).then((res) => {
+        cal && cal(res);
+        endAction && dispatch(endAction());
+        axiostance.get('/getAllTags').then((res)=>{
+            dispatch({type: 'query_tags', data: res.data.data});
+        })
+    })
+}

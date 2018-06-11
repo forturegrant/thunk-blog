@@ -1,6 +1,6 @@
 {
   "presets": ["es2015","react","stage-0","env"],
-  "plugins": [["import", { "libraryName": "antd", "style": true }],"transform-runtime","transform-class-properties"],
+  "plugins": [["import", { "libraryName": "antd", "style": true }],"transform-class-properties"],
   "env": {
     "production":{
       "preset":["react-optimize"]

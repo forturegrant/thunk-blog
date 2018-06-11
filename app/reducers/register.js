@@ -1,6 +1,7 @@
 const initialState = {
     loading: false,
-    userInfo: {}
+    userInfo: {},
+    tags: []
 }
 
 export function startRegister(text) {
@@ -38,6 +39,10 @@ export function registerR(state = initialState, action) {
                 userInfo: action.data
             }
             break;
+        case "query_tags":
+            return {
+                tags: action.data
+            }
         default:
             return state
     }

@@ -8,7 +8,9 @@ import {
 } from 'react-router-dom'
 import Menus from './menus'
 import Welcome from './welcome'
-import AdminManagerUser from './adminManagerUser'
+/*import AdminManagerUser from './adminManagerUser'*/
+import NewArticle from './NewArticle'
+import managerTags from './managerTags'
 
 class Admin extends Component {
     constructor(props) {
@@ -21,11 +23,12 @@ class Admin extends Component {
             <div>
                 <div className="bigContainer">
                     <div className="menuContainer">
-                        <Menus/>
+                        <Menus history={this.props.history}/>
                     </div>
                     <div>
-                        <Route path={`${url}/`} component={Welcome}/>
-                        <Route path={`${url}/managerUser`} component={AdminManagerUser}/>
+                        <Route exact path={`${url}/`} component={Welcome}/>
+                        <Route path={`${url}/newArticle`} component={NewArticle}/>
+                        <Route path={`${url}/managerTags`} component={managerTags}/>
                     </div>
                 </div>
             </div>

@@ -12,7 +12,7 @@ class AdminManagerUser extends Component {
 
     render() {
         return (
-            <h1>Welcome to my blog</h1>
+
         )
     }
 }
