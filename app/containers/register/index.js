@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import {Form, Row, Col, Spin, Input, Icon, Button, message} from 'antd'
 
 import {fetchRegister} from "../../actions/common";
-import {startRegister, endRegister} from '../../reducers/register'
+import {startRegister, endRegister} from '../../reducers/global'
 
 const FormItem = Form.Item
 
@@ -90,7 +90,7 @@ const register = Form.create({
 })(registerForm);
 
 const mapStateToProps = (state) => ({
-    loading: state.loading
+    loading: state.global.loading
 })
 
 const mapDispatchToProps = (dispatch) => ({

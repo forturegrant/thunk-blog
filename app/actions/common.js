@@ -49,7 +49,7 @@ export const fetchRegister = (startAction, values, cal, endAction) => (dispatch)
 
 export const fetchLogOut = (startAction, values, cal, endAction) => (dispatch) => {
     startAction && dispatch(startAction());
-    axiostance.post('/user/logout').then((res) => {
+    axiostance.get('/user/logout').then((res) => {
         cal && cal(res);
         endAction && dispatch(endAction());
         dispatch({type: 'response_user_info', data: res.data.data});

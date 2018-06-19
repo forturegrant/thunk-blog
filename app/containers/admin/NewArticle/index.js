@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {Form, Row, Col, Spin, Input, Icon, Button ,message} from 'antd'
 import {fetchPublish} from "../../../actions/common";
-import {startRegister, endRegister} from '../../../reducers/register'
+import {startRegister, endRegister} from '../../../reducers/global'
 
 class NewArticle extends Component {
     constructor(props) {

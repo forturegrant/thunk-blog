@@ -5,7 +5,7 @@ import Login from '../login'
 import Logined from '../logined'
 import Register from '../register'
 import {fetchLogOut} from "../../actions/common";
-import {startRegister, endRegister} from '../../reducers/register'
+import {startRegister, endRegister} from '../../reducers/global'
 
 import {Carousel, Tabs} from 'antd'
 
@@ -31,7 +31,7 @@ class Front extends Component {
                         <img src="static/banner_3.png"/>
                     </div>
                 </Carousel>
-                {userInfo ? <Logined history={history}
+                {userInfo.username ? <Logined history={history}
                                      logout={() => this.props.dispatch(fetchLogOut(startRegister, '', '', endRegister))}
                                      userInfo={userInfo}/> :
                     <Tabs defaultActiveKey="1" tabBarStyle={{textAlign: 'center'}} className='container'>
@@ -49,7 +49,7 @@ class Front extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    userInfo: state.userInfo
+    userInfo: state.front.userInfo
 })
 
 const mapDispatchToProps = (dispatch) => ({

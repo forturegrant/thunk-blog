@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {Form, Row, Col, Spin, Input, Icon, Button, message, Tag} from 'antd'
 import {fetchAddTag} from "../../../actions/common";
-import {startRegister, endRegister} from '../../../reducers/register'
+import {startRegister, endRegister} from '../../../reducers/global'
 
 class managerTags extends Component {
     constructor(props) {
@@ -42,9 +42,10 @@ class managerTags extends Component {
             <div>
                 <h2 className='titleStyle'>标签管理</h2>
                 <Tag>首页</Tag>
-                {tags.map((value,index)=>{
-                    <Tag key={index} closable>{value}</Tag>
-                })
+                {
+                    tags.map((item, index) => (
+                        <Tag key={index} closable>{item.name}</Tag>
+                    ))
                 }
                 {this.state.inputVisible && (
                     <Input
@@ -65,7 +66,7 @@ class managerTags extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    tags: state.tags
+    tags: state.admin.tags
 })
 
 const mapDispatchToProps = (dispatch) => ({
